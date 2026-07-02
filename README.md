@@ -1,19 +1,38 @@
-# React + Vite
+# IP Verify - Single Page Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A client-side IP address verification tool built with React, Vite, and HeroUI. This SPA fetches and displays detailed network information including IP, geolocation, ASN, and proxy status.
 
-Currently, two official plugins are available:
+## 🚀 Application Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This Single Page Application (SPA) provides a clean, modern interface for users to check their public IP address and associated network metadata. The application follows a clear state-driven UI pattern:
 
-## React Compiler
+- **Idle State**: Initial landing view with a call-to-action button
+- **Loading State**: Shows a spinner with status message during API fetch
+- **Success State**: Displays comprehensive IP data in a structured grid
+- **Error State**: Shows error message with retry option
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 📱 UI Components & Layout
 
-Note: This will impact Vite dev & build performances.
+The application uses a **3-column grid layout** (desktop) that adapts to a single column on mobile:
 
-## Expanding the ESLint configuration
+| Column | Content |
+|--------|---------|
+| **Left Sidebar (Desktop)** | 160x600 vertical ad placement (Skyscraper) |
+| **Center (Main)** | Core application: IP lookup, results display, metadata grid |
+| **Right Sidebar (Desktop)** | 160x600 vertical ad placement (Skyscraper) |
+| **Footer (All Devices)** | Optional 728x90 horizontal banner ad placement |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# IPVERIFY" 
+### Key UI Features:
+- **Sticky navigation** with NetVerify branding
+- **Glass-morphism design** with dark theme (slate-900 background)
+- **Responsive results grid** (1 column mobile → 3 columns desktop)
+- **Copy to clipboard** functionality for IP address
+- **HeroUI v3** components (Card, Button, Spinner, Typography)
+
+## 🔧 Environment Configuration
+
+This application uses an environment variable for the API endpoint:
+
+```env
+# .env file (create this in your project root)
+VITE_REACT_API_MAIN=https://api.ipify.org?format=json

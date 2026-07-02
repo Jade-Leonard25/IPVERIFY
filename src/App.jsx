@@ -7,7 +7,7 @@ export default function App() {
   const [data, setData] = useState(null);
   const [copied, setCopied] = useState(false);
   const apiMain = import.meta.env.VITE_REACT_API_MAIN
-  // Core Lookup Logic using Free IP API
+  
   const handleLookup = async () => {
     setStatus("loading");
     try {
