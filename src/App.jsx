@@ -6,12 +6,12 @@ export default function App() {
   const [status, setStatus] = useState("idle");
   const [data, setData] = useState(null);
   const [copied, setCopied] = useState(false);
-
+  const apiMain = import.meta.env.VITE_REACT_API_MAIN
   // Core Lookup Logic using Free IP API
   const handleLookup = async () => {
     setStatus("loading");
     try {
-      const response = await fetch("https://free.freeipapi.com/api/json/");
+      const response = await fetch(apiMain);
       if (!response.ok) throw new Error("API Node connection error");
       
       const payload = await response.json();
